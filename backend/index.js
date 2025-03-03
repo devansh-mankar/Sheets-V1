@@ -6,6 +6,8 @@ import sheetRouter from "./routes/sheetRoutes.js";
 import connectDB from "./models/db.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import dotenv from "dotenv";
+dotenv.config();
 
 // Get directory name in ESM
 const __filename = fileURLToPath(import.meta.url);
@@ -22,9 +24,9 @@ app.use(
   cors({
     origin:
       process.env.NODE_ENV === "production"
-        ? process.env.FRONTEND_URL || true
+        ? process.env.FRONTEND_URL
         : "http://localhost:5173",
-    credentials: true, // Allow credentials (cookies, auth headers)
+    credentials: true,
   })
 );
 
