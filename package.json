@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "express": "^4.21.2",
     "nodemon": "^3.1.9",
     "recoil": "^0.7.7"
   }
