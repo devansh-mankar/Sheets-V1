@@ -14,6 +14,7 @@ import {
   XMarkIcon,
   ChevronDownIcon,
 } from "@heroicons/react/24/outline";
+import { API_BASE_URL } from "../config";
 
 const products = [
   { name: "Rename", href: "#" },
@@ -57,7 +58,7 @@ export default function Header() {
       try {
         const token = localStorage.getItem("token");
 
-        const response = await fetch("http://localhost:8080/auth/userDetails", {
+        const response = await fetch(`${API_BASE_URL}/auth/userDetails`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -88,7 +89,7 @@ export default function Header() {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch("http://localhost:8080/auth/logout", {
+      const response = await fetch(`${API_BASE_URL}/auth/logout`, {
         method: "POST",
         credentials: "include", // Ensures cookies are sent
       });

@@ -4,6 +4,7 @@ import { RecoilRoot } from "recoil";
 import SheetContainer from "../Containers/SheetsContainer";
 import Footer from "../components/Footer";
 import DataHeader from "../components/DataHeader";
+import API_BASE_URL from "../config.js";
 
 export default function Home() {
   const [sheets, setSheets] = useState([]);
@@ -19,7 +20,7 @@ export default function Home() {
     const fetchSheets = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch("http://localhost:8080/api/sheets/", {
+        const response = await fetch(`${API_BASE_URL}/api/sheets/`, {
           credentials: "include",
         });
 
@@ -62,12 +63,9 @@ export default function Home() {
       setIsLoading(true);
       console.log(`Fetching data for sheet: ${sheetId}`);
 
-      const response = await fetch(
-        `http://localhost:8080/api/sheets/${sheetId}`,
-        {
-          credentials: "include",
-        }
-      );
+      const response = await fetch(`${API_BASE_URL}/api/sheets/${sheetId}`, {
+        credentials: "include",
+      });
 
       if (!response.ok) {
         console.error(`Error: ${response.status} - ${response.statusText}`);
@@ -111,7 +109,7 @@ export default function Home() {
         await saveSheetData(activeSheet, activeSheetName);
       }
 
-      const response = await fetch("http://localhost:8080/api/sheets/", {
+      const response = await fetch(`${API_BASE_URL}/api/sheets/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -161,20 +159,17 @@ export default function Home() {
       setIsLoading(true);
       console.log(`Saving data for sheet ${sheetId}:`, sheetData);
 
-      const response = await fetch(
-        `http://localhost:8080/api/sheets/${sheetId}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-          body: JSON.stringify({
-            name: sheetName,
-            data: sheetData,
-          }),
-        }
-      );
+      const response = await fetch(`${API_BASE_URL}/api/sheets/${sheetId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({
+          name: sheetName,
+          data: sheetData,
+        }),
+      });
 
       if (!response.ok) {
         throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -251,13 +246,10 @@ export default function Home() {
       setIsLoading(true);
       setIsSwitchingSheets(true);
 
-      const response = await fetch(
-        `http://localhost:8080/api/sheets/${sheetId}`,
-        {
-          method: "DELETE",
-          credentials: "include",
-        }
-      );
+      const response = await fetch(`${API_BASE_URL}/api/sheets/${sheetId}`, {
+        method: "DELETE",
+        credentials: "include",
+      });
 
       if (!response.ok) {
         console.error(`Error: ${response.status} - ${response.statusText}`);
