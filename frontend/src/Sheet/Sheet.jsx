@@ -5,7 +5,7 @@ import { SelectedCellsState } from "../Store/SelectedCellsState.js";
 import { CellValueState } from "../Store/CellValueState.js";
 import { useRecoilCallback } from "recoil";
 
-import { numberToChar } from "../Utils/numberToChar.js";
+import { numberToChar } from "../utils/numberToChar.js";
 
 export const DEFAULT_CELL_WIDTH = 100;
 export const DEFAULT_CELL_HEIGHT = 25;
