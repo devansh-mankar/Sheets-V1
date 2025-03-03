@@ -4,6 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "prestart": "npm install",
     "start": "node index.js"
   },
   "keywords": [],
