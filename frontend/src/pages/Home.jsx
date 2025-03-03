@@ -299,7 +299,7 @@ export default function Home() {
         </div>
 
         {/* Data header positioned below the main header */}
-        <div className="fixed top-16 mb-4 mx-2 left-0 right-0 z-[5]">
+        <div className="fixed  mb-4 mx-2 left-0 right-0 z-[5]">
           <DataHeader
             activeSheetId={activeSheet}
             activeSheetName={activeSheetName}
