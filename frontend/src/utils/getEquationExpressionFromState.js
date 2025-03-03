@@ -1,4 +1,4 @@
-import { cellidToMatrixIndices } from "./cellIdToMatrixIndices.js";
+import { cellidToMatrixIndices } from "./cellidToMatrixIndices.js";
 import { CellValueState } from "../Store/CellValueState.js";
 
 export const getEquationExpressionFromState = (
