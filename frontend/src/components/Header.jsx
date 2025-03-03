@@ -14,7 +14,7 @@ import {
   XMarkIcon,
   ChevronDownIcon,
 } from "@heroicons/react/24/outline";
-import { API_BASE_URL } from "../config";
+import { API_BASE_URL } from "../config.js";
 
 const products = [
   { name: "Rename", href: "#" },
